@@ -1,0 +1,96 @@
+select.ui.dropdown  {
+    min-height: auto !important;
+    height: 1.25em;
+    border: none;
+    padding: 0;
+    background-color: #c7d5ed;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #c7d5ed;
+}
+
+.ui.form textarea {
+    background-color: white;
+}
+
+.ui.form input:not([type]), .ui.form input[type=date], .ui.form input[type=datetime-local], .ui.form input[type=email], .ui.form input[type=file], .ui.form input[type=number], .ui.form input[type=password], .ui.form input[type=search], .ui.form input[type=tel], .ui.form input[type=text], .ui.form input[type=time], .ui.form input[type=url] {
+    background-color: white;
+}
+
+#title-bar {
+    -webkit-app-region: drag;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    vertical-align: middle;
+    background-image: url('../img/barL.png');
+    margin: 0;
+}
+
+#title {
+    position: fixed;
+    top: 0;
+    left: 6px;
+    color: cyan;
+}
+
+.ui.black.button, .ui.black.buttons .button {
+    background-color: #c7d5ed;
+}
+
+#title-bar-btns {
+    -webkit-app-region: no-drag;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: inherit;
+}
+
+#min-btn {
+    height: 100%;
+    margin: 0;
+}
+
+#max-btn {
+    height: 100%;
+    margin: 0;
+}
+
+#close-btn {
+    height: 100%;
+    margin: 0;
+}
+#menu {
+    margin: 0 auto 0 0;
+    padding: 0;
+}
+
+#menu2 {
+    margin: 0 auto 0 0;
+    padding: 0;
+}
+
+.ui.menu {
+    background-color: #c7d5ed;
+}
+
+.ui.menu .item {
+    background-color: #c7d5ed;
+    height: 100%;
+}
+
+.ui.button {
+    background-color: #c7d5ed;
+}
+
+.ui.menu .item {
+    background-color: #c7d5ed;
+    color: black;
+}
+
+.ui.icon.grey.item.button {
+    height: 100%;
+}
