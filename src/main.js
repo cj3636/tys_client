@@ -46,7 +46,9 @@ const createWindow = () => {
   // Some crappy workaround to make the window controls work
   // without having to show the window before its ready
   mainWindow.unmaximize();
-  mainWindow.webContents.openDevTools();
+  if (config.get('devMode')) {
+	mainWindow.webContents.openDevTools();
+  }
   // Emitted when the window is closed.
   mainWindow.on('closed', () => {
     // Dereference the window object, usually you would store windows
