@@ -1,9 +1,9 @@
 {
-  "name": "tryptor",
-  "productName": "tryptor",
+  "name": "tys_client",
+  "productName": "TYS_Client",
   "version": "1.0.0",
   "private": true,
-  "description": "An encryption program better than PGP.",
+  "description": "Yellow Submarine Server Client (ADMIN|ALPHA)",
   "main": "src/main.js",
   "scripts": {
     "start": "electron-forge start",
@@ -17,58 +17,36 @@
   "license": "MIT",
   "config": {
     "forge": {
-      "make_targets": {
-        "win32": [
-          "squirrel"
-        ],
-        "darwin": [
-          "zip"
-        ],
-        "linux": [
-          "deb",
-          "rpm"
-        ]
-      },
-      "electronPackagerConfig": {
+      "packagerConfig": {
         "packageManager": "npm",
-        "icon": "src/img/app.ico",
-        "setupIcon": "src/img/app.ico"
+        "icon": "./src/img/app.ico"
       },
-      "electronWinstallerConfig": {
-        "name": "tryptor",
-        "icon": "src/img/app.ico",
-        "setupIcon": "src/img/app.ico"
-      },
-      "electronInstallerDebian": {},
-      "electronInstallerRedhat": {},
-      "windowsStoreConfig": {
-        "packageName": "tryptor",
-        "name": "tryptor"
-      }
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "iconUrl": "https://theyellowsub.us/tys/app.ico",
+            "setupIcon": "./src/img/app.ico"
+          }
+        }
+      ]
     }
   },
   "dependencies": {
-    "custom-electron-titlebar": "^3.2.0",
-    "electron": "^7.1.7",
-    "electron-compile": "^6.4.4",
-    "electron-config": "^2.0.0",
-    "electron-packager": "^14.1.1",
     "electron-squirrel-startup": "^1.0.0",
+    "custom-electron-titlebar": "^3.2.0",
+    "electron-config": "^2.0.0",
     "jquery": "^3.4.1",
     "ssh2": "^0.8.7",
     "tcp-ping": "^0.1.1"
   },
   "devDependencies": {
-    "babel-plugin-transform-async-to-generator": "^6.24.1",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
-    "electron-forge": "^5.2.4",
-    "electron-prebuilt-compile": "4.0.0",
-    "electron-winstaller": "^4.0.0",
-    "eslint": "^3.19.0",
-    "eslint-config-airbnb": "^15.1.0",
-    "eslint-plugin-import": "^2.19.1",
-    "eslint-plugin-jsx-a11y": "^5.1.1",
-    "eslint-plugin-react": "^7.17.0"
+    "@electron-forge/cli": "^6.0.0-beta.47",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.47",
+    "@electron-forge/maker-zip": "^6.0.0-beta.47",
+    "electron": "7.1.7",
+    "electron-prebuilt-compile": "^4.0.0",
+    "npm-update-all": "^1.0.1",
+    "source-map-support": "^0.5.16"
   }
 }
