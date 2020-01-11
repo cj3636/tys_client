@@ -23,7 +23,7 @@ menu.append(new remote.MenuItem({
 
 menu.append(new remote.MenuItem({
   label: 'SSH',
-  click: () => alert('Not Available Currently'),
+  click: () => openSSH(),
   type: 'separator',
 }));
 
