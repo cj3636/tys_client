@@ -2,10 +2,9 @@ const BrowserWindow = require('electron').BrowserWindow;
 const app = require('electron').app;
 
 const path = require('path');
+const fs = require('fs');
 
-const Config = require('electron-config');
-
-const config = new Config();
+const config = require('electron-json-config');
 
 // eslint-disable-line global-require
 if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
@@ -47,7 +46,7 @@ const createWindow = () => {
   // without having to show the window before its ready
   mainWindow.unmaximize();
   if (config.get('devMode')) {
-	mainWindow.webContents.openDevTools();
+    mainWindow.webContents.openDevTools();
   }
   // Emitted when the window is closed.
   mainWindow.on('closed', () => {
@@ -79,10 +78,7 @@ app.on('activate', () => {
     createWindow();
   }
 });
-
 // Config Settings
-config.set('themeActive', false);
-config.set('devMode', true);
 
 require('./titleBar.js');
 

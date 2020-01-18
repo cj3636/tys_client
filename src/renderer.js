@@ -4,11 +4,28 @@ const customTitleBar = require('custom-electron-titlebar');
 
 const menu = new remote.Menu();
 
-const Config = require('electron-config');
-
-const config = new Config();
+const config = require('electron-json-config');
 
 require('jquery');
+
+const pages = ['index', 'home', 'panel', 'ssh', 'tryptor'];
+
+if (config.get('currentPage') != null) {
+  switch (config.get('currentPage')) {
+    case 1:
+      openHome();
+      break;
+    case 2:
+      openPanel();
+      break;
+    case 3:
+      openSSH();
+      break;
+    case 4:
+      openTryptor();
+      break;
+  }
+}
 
 const TryptorMainTitleBar = new customTitleBar.Titlebar({
   backgroundColor: customTitleBar.Color.fromHex('#202225'),
@@ -19,7 +36,7 @@ const TryptorMainTitleBar = new customTitleBar.Titlebar({
 
 menu.append(new remote.MenuItem({
   label: 'Home',
-  click: () => goHome(),
+  click: () => openHome(),
   type: 'separator',
 }));
 
@@ -63,20 +80,24 @@ function toggleDev() {
   }
 }
 
-function goHome() {
+function openHome() {
   openPage('home');
+  config.set('currentPage', 1);
 }
 
 function openPanel() {
   openPage('panel');
+  config.set('currentPage', 2);
 }
 
 function openSSH() {
   openPage('ssh');
+  config.set('currentPage', 3);
 }
 
 function openTryptor() {
   openPage('tryptor');
+  config.set('currentPage', 4);
 }
 
 function openPage(page) {
@@ -99,7 +120,7 @@ function openPageWithScript(page) {
     document.getElementById('page').innerHTML = this.responseText;
     let contentScript = document.getElementById('sshScript');
     let script = document.createElement('script');
-    script.textContent = contentScript.textContent;
+    //script.textContent = contentScript.textContent;
     document.body.appendChild(script);
   };
   xhr.send();

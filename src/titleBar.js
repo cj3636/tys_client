@@ -2,16 +2,13 @@ const remote = require('electron');
 
 const menu = new remote.Menu();
 
-const Config = require('electron-config');
-
-const config = new Config();
+const config = require('electron-json-config');
 
 require('jquery');
 
-
 menu.append(new remote.MenuItem({
   label: 'Home',
-  click: () => goHome(),
+  click: () => openHome(),
   type: 'separator',
 }));
 
@@ -55,20 +52,24 @@ function toggleDev() {
   }
 }
 
-function goHome() {
+function openHome() {
   openPage('home');
+  config.set('currentPage', 1);
 }
 
 function openPanel() {
   openPage('panel');
+  config.set('currentPage', 2);
 }
 
 function openSSH() {
-  openPageWithScript('ssh');
+  openPage('ssh');
+  config.set('currentPage', 3);
 }
 
 function openTryptor() {
   openPage('tryptor');
+  config.set('currentPage', 4);
 }
 
 function openPage(page) {
