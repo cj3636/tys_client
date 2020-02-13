@@ -20,6 +20,8 @@
             `npm install --save PACKAGENAME@VERSION`
         * To install new development dependencies (permanently to this APP)
             `npm install --saveDev PACKAGENAME@VERSION`
+    `npm start` to start
+    `npm make` to make the .exe
 3. To start development see main.js. This is defined via the `"main": "src/main.js"` line in your package.json.
 ### Additional Notes          
 * TitleBar.js and Render.js are duplicates. They must remain this way when you edit the title bar.
