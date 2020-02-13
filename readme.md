@@ -10,7 +10,7 @@
 
 ### Getting Started
 1. Clone the Repo
-    'git clone --single-branch --branch bare https://github.com/cj3636/tys_client'
+    `git clone --single-branch --branch bare https://github.com/cj3636/tys_client`
 2. In the repo using either your IDE built-in terminal or similiar (CMD) run
     * It is best you edit package.json to suite your needs first
     `npm install`
