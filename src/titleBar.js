@@ -1,3 +1,5 @@
+// This is (almost) a copy of render.js
+// See below for differences.
 const remote = require('electron');
 
 const menu = new remote.Menu();
@@ -5,7 +7,8 @@ const menu = new remote.Menu();
 const config = require('electron-json-config');
 
 require('jquery');
-
+// There is no custom TitleBar object in this file.
+// electron-custom-titlebar is not imported.
 menu.append(new remote.MenuItem({
   label: 'Home',
   click: () => openHome(),
@@ -13,14 +16,14 @@ menu.append(new remote.MenuItem({
 }));
 
 menu.append(new remote.MenuItem({
-  label: 'Panel',
-  click: () => openPanel(),
+  label: 'Website',
+  click: () => openSite(),
   type: 'separator',
 }));
 
 menu.append(new remote.MenuItem({
-  label: 'SSH',
-  click: () => openSSH(),
+  label: 'DEMO',
+  click: () => openDemo(),
   type: 'separator',
 }));
 
@@ -57,13 +60,13 @@ function openHome() {
   config.set('currentPage', 1);
 }
 
-function openPanel() {
-  openPage('panel');
+function openSite() {
+  openPage('site');
   config.set('currentPage', 2);
 }
 
-function openSSH() {
-  openPage('ssh');
+function openDemo() {
+  openPage('demo');
   config.set('currentPage', 3);
 }
 
@@ -83,19 +86,6 @@ function openPage(page) {
   xhr.send();
 }
 
-function openPageWithScript(page) {
-  let xhr = new XMLHttpRequest();
-  xhr.open('GET', page + '.html', true);
-  xhr.onreadystatechange = function () {
-    if (this.readyState !== 4) return;
-    if (this.status !== 200) return; // or whatever error handling you want
-    document.getElementById('page').innerHTML = this.responseText;
-    let contentScript = document.getElementById('sshScript');
-    let script = document.createElement('script');
-    script.textContent = contentScript.textContent;
-    document.body.appendChild(script);
-  };
-  xhr.send();
-}
-
+// This overrides the default electron Menu class/method.
+// Instead of using our custom package, we have to use electrons menu
 remote.Menu.setApplicationMenu(menu);

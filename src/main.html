@@ -1,26 +1,38 @@
 <!DOCTYPE html>
+<!--This is a typical web page. You can do almost anything you do on a website here.-->
 <html lang="en_US">
 <head>
     <title></title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script>
+      // Work around for JQuery.
+      // This causes jquery to load TWICE, once for renderer, once for main
       if (typeof module === 'object') {
         window.module = module;
         module = undefined;
       }
     </script>
+    <!--Import JQuery for semantic-->
     <script src="js/jquery-3.1.1.min.js"></script>
+    <!--Import semantic UI https://semantic-ui.com/-->
     <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
     <script src="semantic/dist/semantic.min.js"></script>
-    <script src="js/cypher.js"></script>
-    <script src="js/ssh.js"></script>
+    <!--Load the demo file for the demo page-->
+    <script src="demo.js"></script>
+    <!--you can load in your additional JS files here:-->
+    <!--<script src="js/EXAMPLE.js"></script>-->
+    <!--Be sure you import them here and not anywhere else (i.e. another .html file-->
+    <!--    This is my semantic override css styling-->
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <script>
+      // Work around continued
       if (window.module) module = window.module;
     </script>
 </head>
 <body>
+<!--Boot strap is bloated garbage. I keep things somple and use Semantic.-->
+<!--Semantic is just a css/js styling wrapper. Super easy to use. The below html classes are all semantic. Use id=EXAMPLE to override semantic-->
 <div id="page" style="height: 100%;">
     <div class="ui stackable grid">
         <div class="sixteen wide center aligned column">
@@ -32,6 +44,8 @@
 </div>
 </body>
 <script>
+  //Finally we load the RENDERER version of the titlebar.
   require('./renderer.js');
+  // See renderer.js
 </script>
 </html>

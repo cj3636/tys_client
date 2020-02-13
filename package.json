@@ -1,16 +1,14 @@
 {
-  "name": "tys_client",
-  "productName": "TYS_Client",
+  "name": "bare_client",
+  "productName": "BARE_Client",
   "version": "1.0.0",
   "private": true,
-  "description": "Yellow Submarine Server Client (ADMIN|ALPHA)",
+  "description": "Bare Client Example.",
   "main": "src/main.js",
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
-    "make": "electron-forge make",
-    "publish": "electron-forge publish",
-    "lint": "eslint src --color"
+    "make": "electron-forge make"
   },
   "keywords": [],
   "author": "cj3636",
