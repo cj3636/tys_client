@@ -13,15 +13,15 @@
     `git clone --single-branch --branch bare https://github.com/cj3636/tys_client`
 2. In the repo using either your IDE built-in terminal or similiar (CMD) run
     * It is best you edit package.json to suite your needs first
-    `npm install`
+    * `npm install`
         * This will install all dependencies in package.json
         * devDependencies are only compiled in the dev environment. They are not used during runtime.
         * To install new runtime dependencies (permanently to this APP)
             `npm install --save PACKAGENAME@VERSION`
         * To install new development dependencies (permanently to this APP)
             `npm install --saveDev PACKAGENAME@VERSION`
-    `npm start` to start
-    `npm make` to make the .exe
+    * `npm start` to start
+    * `npm make` to make the .exe
 3. To start development see main.js. This is defined via the `"main": "src/main.js"` line in your package.json.
 ### Additional Notes          
 * TitleBar.js and Render.js are duplicates. They must remain this way when you edit the title bar.
