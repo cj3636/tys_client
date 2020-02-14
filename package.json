@@ -6,49 +6,43 @@
   "description": "Yellow Submarine Server Client (ADMIN|ALPHA)",
   "main": "src/main.js",
   "scripts": {
-    "start": "electron-forge start",
-    "package": "electron-forge package",
-    "make": "electron-forge make",
-    "publish": "electron-forge publish",
-    "lint": "eslint src --color"
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
   },
   "keywords": [],
   "author": "cj3636",
   "license": "MIT",
-  "config": {
-    "forge": {
-      "packagerConfig": {
-        "packageManager": "npm",
-        "icon": "./src/img/app.ico"
-      },
-      "makers": [
-        {
-          "name": "@electron-forge/maker-squirrel",
-          "config": {
-            "iconUrl": "https://theyellowsub.us/tys/app.ico",
-            "setupIcon": "./src/img/app.ico"
-          }
-        }
-      ]
+  "build": {
+    "appId": "com.cj3636.tys.client",
+    "productName": "TYS_Client",
+    "copyright": "Copyright © 2020 cj3636",
+    "win": {
+      "target": "nsis",
+      "icon": "build/app.ico"
+    },
+    "nsis": {
+      "installerIcon": "build/app.ico"
+    },
+    "asar": "false",
+    "directories": {
+      "output": "out"
     }
   },
   "dependencies": {
     "custom-electron-titlebar": "^3.2.0",
     "downloads-folder": "^1.0.2",
+    "electron-builder-squirrel-windows": "^22.3.3",
     "electron-json-config": "^1.5.3",
     "electron-prompt": "^1.4.0",
-    "electron-squirrel-startup": "^1.0.0",
     "jquery": "^3.4.1",
     "open-file-explorer": "^1.0.2",
     "ssh2": "^0.8.7",
     "tcp-ping": "^0.1.1"
   },
   "devDependencies": {
-    "@electron-forge/cli": "^6.0.0-beta.47",
-    "@electron-forge/maker-squirrel": "^6.0.0-beta.47",
-    "@electron-forge/maker-zip": "^6.0.0-beta.47",
-    "electron": "7.1.7",
-    "electron-prebuilt-compile": "^4.0.0",
+    "electron": "^8.0.0",
+    "electron-builder": "^22.3.2",
     "npm-update-all": "^1.0.1",
     "source-map-support": "^0.5.16"
   }

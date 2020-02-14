@@ -3,7 +3,7 @@
     <package-json value="$PROJECT_DIR$/package.json" />
     <command value="run" />
     <scripts>
-      <script value="make" />
+      <script value="pack" />
     </scripts>
     <arguments value="--platform=win32 --arch=x64" />
     <node-interpreter value="project" />

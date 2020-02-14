@@ -2,14 +2,7 @@ const BrowserWindow = require('electron').BrowserWindow;
 const app = require('electron').app;
 
 const path = require('path');
-const fs = require('fs');
-
 const config = require('electron-json-config');
-
-// eslint-disable-line global-require
-if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
-  app.quit();
-}
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -79,6 +72,7 @@ app.on('activate', () => {
     createWindow();
   }
 });
+
 // Config Settings
 function init() {
   //require('./titleBar.js');

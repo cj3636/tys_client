@@ -1,5 +1,5 @@
+const { remote } = require('electron');
 const { dialog } = require('electron').remote;
-const remote = require('electron').remote;
 
 const downloadsFolder = require('downloads-folder');
 const Client = require('ssh2').Client;
@@ -208,7 +208,7 @@ function uploadFile() {
             }
           })
           .catch(console.error);
-        ;
+
       })
       .catch(console.error);
   } else {
