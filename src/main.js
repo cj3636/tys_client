@@ -37,6 +37,7 @@ const createWindow = () => {
   // Once the window is fully loaded, actually show it to the user
   mainWindow.webContents.on('did-finish-load', () => {
     mainWindow.show();
+    init();
   });
 
   // and load the index.html of the app.
@@ -79,6 +80,13 @@ app.on('activate', () => {
   }
 });
 // Config Settings
-
-require('./titleBar.js');
-
+function init() {
+  //require('./titleBar.js');
+  require('./config.js');
+  if (!config.has('devMode')) {
+    config.set('devMode', false);
+  } else {
+    config.set('devMode', true);
+    config.set('currentPage', 0);
+  }
+}

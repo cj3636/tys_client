@@ -1,5 +1,5 @@
 const { dialog } = require('electron').remote;
-const { remote } = require('electron');
+const remote = require('electron').remote;
 
 const downloadsFolder = require('downloads-folder');
 const Client = require('ssh2').Client;
