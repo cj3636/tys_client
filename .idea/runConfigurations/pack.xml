@@ -1,15 +1,13 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="make" type="js.build_tools.npm">
+  <configuration default="false" name="pack" type="js.build_tools.npm">
     <package-json value="$PROJECT_DIR$/package.json" />
     <command value="run" />
     <scripts>
       <script value="pack" />
     </scripts>
-    <arguments value="--platform=win32 --arch=x64" />
     <node-interpreter value="project" />
-    <envs>
-      <env name="DEBUG" value="electron-forge:*" />
-    </envs>
+    <package-manager value="C:/Program Files (x86)/Yarn" />
+    <envs />
     <method v="2" />
   </configuration>
 </component>

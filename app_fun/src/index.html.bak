@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Physics Engine(BETA)</title>
+<style>
+	#canvas {
+		background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+		position: absolute;
+		width:  1000px;
+  		height: 800px;
+  		margin: 0px;
+	}
+	
+	#debug {
+		position: absolute;
+		width:  1000px;
+  		height: 800px;
+  		margin: 0px;
+	}
+	.bar {
+		background-color: gray;
+		width: 1000px;
+		height:40px;
+		-webkit-app-region: drag;
+	}
+</style>
+<link rel="stylesheet" type="text/css" href="css\style.css">
+</head>
+
+<body onload="" oncontextmenu="return false;">
+<div class="bar">
+             <div id="title-bar-btns">
+                  <button id="min-btn">-</button>
+                  <button id="max-btn">+</button>
+                  <button id="close-btn">x</button>
+             </div>
+</div>
+<p id="hide" style="display: none;">
+<input class="user" type="text" id="userInput">Ball Bounce</input><br>
+<input class="user1" type="text" id="userInput2">Right-Left Gravity</input><br>
+<input class="user2" type="text" id="userInput3">Down-Up Gravity</input><br>
+<input class="user3" type="text" id="userInput4">Ball Image(Direct URL)</input><br><br>
+	<button onclick="test();">Submit</button>	
+	<button id="default" onclick="init()">Default Settings</button>
+	<button id="reset" onclick="location.reload(true)">Reset All</button>
+</p>
+<canvas id="canvas" width="1000" height="800"></canvas>
+<canvas id="debug" width="1000" height="800"></canvas>
+<script>
+var open = 0;
+document.addEventListener('keypress', e => {
+	console.log(e)
+	if (e.keyCode === 96 || e.key ==="`") {
+		if(open == 0)  {
+			show();
+		} else if (open == 1) {
+			hide();
+		} else {
+			console.log("Error while showing/hiding settings.")
+		}
+	}
+  });
+const remote = require('electron').remote;
+var window = remote.getCurrentWindow();
+
+window.addEventListener('keypress', e => {
+    console.log(e)
+
+    if (e.keyCode === 128 || e.key ==="x") {
+      window.close();
+    }
+    if (e.keyCode === 13 || e.code ==='Enter') {
+      init();
+    }
+	if (e.keyCode === 82 || e.code ==='r') {
+      location.reload();
+    }
+  });
+function show() {
+        if(document.getElementById('hide').style.display=='none') {
+            document.getElementById('hide').style.display='block';
+            open = 1;
+        }
+        return false;
+    }
+function hide() {
+    if(document.getElementById('hide').style.display=='block') {
+            document.getElementById('hide').style.display='none';
+            open = 0;
+        }
+        return false;
+    }
+//Ball Variables
+var ballImage = "img/n64.png"
+var ballDensity = 1
+var ballFriction = .5
+var ballBounce = .8
+//Square Variables
+var squareDensity = 1
+var squareFriction = .5
+var squareBounce = .8
+//Ground Variables
+var xGravity = 0
+var yGravity = 50
+
+function test() {
+			document.getElementById('default').innerHTML = 'Initialize';
+		    var userInput = document.getElementById("userInput").value;
+			var userInput2 = document.getElementById("userInput2").value;
+			var userInput3 = document.getElementById("userInput3").value;
+			var userInput4 = document.getElementById("userInput4").value;
+			if(userInput != "") {
+					ballBounce = userInput;
+				}
+			if(userInput2 != "") {
+					xGravity = userInput2;
+				}
+			if(userInput3 != "") {
+					yGravity = userInput3;
+				}
+			if(userInput4 != "") {
+					ballImage = userInput4;
+				}
+			init();
+			hide();
+			return;
+        }
+
+window.onload = function() {
+	var c = document.getElementById("canvas");
+	var ctx = c.getContext("2d");
+	}
+</script>
+	<script src="js/jquery.js"></script>
+	<script src="js/EaselJS.js"></script>
+	<script src="js/box2dweb.js"></script>
+	<script src="js/Main.js"></script>
+	<script src="js/Ball.js"></script>
+	<script src="js/Square.js"></script>
+	<script src="js/Ground.js"></script>
+</body>
+</html>
